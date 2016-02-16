@@ -1,3 +1,4 @@
 #!/bin/sh
 
-rsync --include='*.jpg' --include='*.html' --include='*.css' amgutier@bench:~/www/
+rsync -zavu *.{html,css,jpg} bench:~/www/
+
