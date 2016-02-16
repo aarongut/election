@@ -1,0 +1,85 @@
+/* Variables */
+
+/* sizes */
+$unit: 16px;
+$slim: 8px;
+$wide: 24px;
+$cutoff: 768px;
+
+/* font sizes */
+$body-size: $unit;
+$title-size: 4*$unit;
+
+/* pallet */
+$text: #333;
+
+$red: #990000;
+$dark-grey: #464646;
+$light-grey: #d4d4d4;
+$light-tan: #f3f0e9;
+$standout-color: $red;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+}
+
+body {
+  font-family: 'PT Sans', sans-serif;
+  font-size: $body-size;
+  color: $text;
+  width: 100%;
+  margin: 0px;
+}
+
+h1 {
+  font-size: $title-size;
+  text-align: center;
+  margin: $title-size 0;
+}
+
+p {
+  margin: $unit;
+}
+
+img {
+  width: 100%;
+}
+
+.main, .header {
+  padding: $unit;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.footer {
+  border-top: 1px solid $red;
+  text-align: center;
+  margin: $unit;
+  padding: $unit;
+}
+
+.standout {
+  background-color: $standout-color;
+  color: $light-grey;
+  font-size: $wide;
+  font-weight: 600;
+  padding: $unit;
+}
+
+.desktop {
+  display: none;
+}
+
+@media (min-width: $cutoff) {
+  .desktop {
+    display: inherit;
+  }
+  .mobile {
+    display: none;
+  }
+
+  .main, .header {
+    width: $cutoff - $unit;
+  }
+}
