@@ -3,29 +3,30 @@
 /* sizes */
 $unit: 16px;
 $slim: 8px;
-$wide: 24px;
+$wide: 20px;
 $cutoff: 768px;
 
 /* font sizes */
-$body-size: $unit;
+$body-size: $wide;
 $title-size: 4*$unit;
 
 /* pallet */
-$text: #333;
+$text: rgba(0, 0, 0, .9);
 
-$red: #990000;
-$dark-grey: #464646;
-$light-grey: #d4d4d4;
-$light-tan: #f3f0e9;
-$standout-color: $red;
+$light-orange: #ffc578;
+$cream: #ffeacf;
+$red: #ba3845;
+$blue: #38526b;
+$grey: #5e5b56;
+
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Raleway', Arial, Helvetica, sans-serif;
-  font-weight: 100;
+  font-family: serifa, serif;
+  font-weight: bold;
 }
 
 body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: "proxima-nova", Arial, Helvetica, sans-serif;
   font-size: $body-size;
   color: $text;
   width: 100%;
@@ -38,18 +39,60 @@ h1 {
   margin: $title-size 0;
 }
 
+h2 {
+  font-size: 3*$unit;
+  margin-top: 3*$unit;
+}
+
 p {
   margin: $unit;
 }
 
+nav {
+  ul {
+    list-style-type: none;
+    background-color: $blue;
+    margin: 0;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  li {
+    float: right;
+
+    a {
+      text-align: center;
+      width: 4*$unit;
+      color: #fff;
+      display: block;
+      padding: $slim;
+      text-decoration: none;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
 img {
   width: 100%;
+  margin-bottom: 2*$unit;
 }
 
 .main, .header {
   padding: $unit;
   margin-right: auto;
   margin-left: auto;
+}
+
+.block {
+  float: left;
+  display: block;
+  box-sizing: border-box;
+  padding: $unit;
 }
 
 .footer {
@@ -60,8 +103,8 @@ img {
 }
 
 .standout {
-  background-color: $standout-color;
-  color: $light-grey;
+  background-color: $red;
+  color: $cream;
   font-size: $wide;
   font-weight: 600;
   padding: $unit;
@@ -69,6 +112,15 @@ img {
 
 .desktop {
   display: none;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }
 
 @media (min-width: $cutoff) {
@@ -80,6 +132,15 @@ img {
   }
 
   .main, .header {
-    width: $cutoff - $unit;
+    min-width: $cutoff - $unit;
+    max-width: 1.2*$cutoff;
+  }
+
+  .block-half {
+    max-width: 50%;
+  }
+
+  .block-third {
+    max-width: 33.333%;
   }
 }
