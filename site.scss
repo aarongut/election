@@ -7,7 +7,7 @@ $wide: 20px;
 $cutoff: 768px;
 
 /* font sizes */
-$body-size: $wide;
+$body-size: $unit;
 $title-size: 4*$unit;
 
 /* pallet */
@@ -21,7 +21,7 @@ $grey: #5e5b56;
 
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: serifa, serif;
+  font-family: "proxima-nova-alt-condensed", Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
 
@@ -35,13 +35,18 @@ body {
 
 h1 {
   font-size: $title-size;
-  text-align: center;
-  margin: $title-size 0;
+  margin: $title-size $unit;
+  display: inline;
 }
 
 h2 {
   font-size: 3*$unit;
   margin-top: 3*$unit;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin-top: -$unit;
 }
 
 p {
@@ -49,9 +54,11 @@ p {
 }
 
 nav {
+  img {
+    width: initial;
+  }
   ul {
     list-style-type: none;
-    background-color: $blue;
     margin: 0;
     padding: 0 $unit 0 0;
     display: block;
@@ -64,7 +71,7 @@ nav {
     a {
       text-align: center;
       width: 4*$unit;
-      color: #fff;
+      color: $blue;
       display: block;
       padding: $slim;
       text-decoration: none;
