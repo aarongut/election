@@ -89,6 +89,10 @@ img {
   margin-bottom: 2*$unit;
 }
 
+img.profPic {
+  margin-top: 2*$unit;
+}
+
 .main, .header {
   padding: $unit;
   margin-right: auto;
@@ -118,6 +122,10 @@ img {
 }
 
 .desktop {
+  display: none;
+}
+
+.hidden {
   display: none;
 }
 
