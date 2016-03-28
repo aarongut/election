@@ -43,7 +43,7 @@ function checkLoginState() {
 
 
 function testAPI() {
-  FB.api('/me/picture', {type:'square', height:'800'}, function(response) {
+  FB.api('/me/picture', {width: '800'}, function(response) {
     if (response && !response.error) {
       var image = document.getElementById("basePic");
       image.src = response.data.url;
@@ -62,19 +62,17 @@ function makeImage() {
   var canvas = document.getElementById('profPicCanvas');
   var context = canvas.getContext("2d");
 
-  // check where/how to crop image
   var image = document.getElementById("basePic");
-  var crop = 0;
-  if (image.width > image.height) {
-    crop = (image.width - image.height)/2;
-  }
+  canvas.height = 800 * image.height / image.width;
 
-  context.drawImage(document.getElementById("basePic"), crop, 0, 800, 800, 0, 0,
-      800, 800);
-  context.drawImage(document.getElementById("logoPic"), 0, 578, 800, 242);
+  // img, x, y, width, height
+  context.drawImage(document.getElementById("basePic"), 0, 0, 800, canvas.height);
+  context.drawImage(document.getElementById("logoPic"), 0, canvas.height - 242, 800, 242);
 
   document.getElementById('profPic').src = canvas.toDataURL();
 }
+
+window.onload = makeImage;
 </script>
 
     <div class="header">
@@ -101,9 +99,9 @@ function makeImage() {
     </fb:login-button>
 
     <canvas id="profPicCanvas" width="800" height="800" class="hidden"></canvas>
-    <img class="profPic" id="profPic" >
+    <img class="profPic" id="profPic">
 
-    <img id="basePic" crossOrigin="Anonymous" class="hidden">
+    <img id="basePic" src="cover.jpg" crossOrigin="Anonymous" class="hidden">
     <img id="logoPic" src="frame.png" class="hidden">
     <div class="footer">
       Vaasavi and Aaron 2016<br />
