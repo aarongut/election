@@ -72,7 +72,20 @@ function makeImage() {
   document.getElementById('profPic').src = canvas.toDataURL();
 }
 
-window.onload = makeImage;
+window.onload = function() {
+  makeImage();
+
+  document.getElementById('uploadImg').onchange = function(e) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      document.getElementById('basePic').src = e.target.result;
+      makeImage();
+    }
+
+    reader.readAsDataURL(e.target.files[0]);
+  };
+};
 </script>
 
     <div class="header">
@@ -93,10 +106,13 @@ window.onload = makeImage;
     </nav>
 
     <h2>Profile Picture Creator</h2>
-    Login with Facebook to create your picture.
+    Login with Facebook to create your picture
 
     <fb:login-button scope="public_profile" onlogin="checkLoginState();">
     </fb:login-button>
+    
+    or upload another image
+    <input type="file" name="image" accept="image/*" id="uploadImg">
 
     <canvas id="profPicCanvas" width="800" height="800" class="hidden"></canvas>
     <img class="profPic" id="profPic">
